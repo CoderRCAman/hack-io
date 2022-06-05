@@ -3,12 +3,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const userRouter = require("./routers/userRouter");
+const fileUpload = require('express-fileupload')
+const userRouter = require("./routers/userRouter"); 
+const postRouter = require('./routers/postRouter')
 const morgan = require("morgan");
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
-app.use(morgan("tiny"));
+app.use(morgan("tiny")); 
+
 app.use(
   cors({
     optionsSuccessStatus: 200,
@@ -20,7 +23,9 @@ app.use(
 app.get("/api/", (req, res) => {
   res.send("Happy Hacking!").end();
 });
-app.use("/user", userRouter);
+app.use("/user", userRouter); 
+
+app.use('/api',postRouter) ;
 
 const URI =
   "mongodb+srv://athaana:1234@cluster0.4rzb2.mongodb.net/TestAthaana?retryWrites=true&w=majority";

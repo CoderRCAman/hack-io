@@ -119,6 +119,26 @@ const userCtrl = {
       return res.status(500).json({ msg: err.message });
     }
   },
+  updateUser: async (req,res) =>{
+    const userDetail = getAuthDetails(req);
+    try {
+      const user = await Users.findById(userDetail.user_id); 
+      if (!user) return res.status(400).json({ msg: "User does not exist." });
+      const {name,avatar,address} =req.body
+      await Users.findOneAndUpdate({_id:req.userDetail.user_id},{
+        name,
+        avatar,
+        address
+      })
+
+     
+    
+      res.json({ msg: "Update Success!" });
+    } catch (err) {
+      return res.status(500).json({ msg: err.message });
+    }
+
+  }
 };
 
 module.exports = userCtrl;

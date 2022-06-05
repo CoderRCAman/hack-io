@@ -20,4 +20,6 @@ router.get('/all_infor',auth, userCtrl.getUsersAllInfor)
 
 router.get('/infor', userCtrl.getUser)
 
+router.patch('/update/:id',userCtrl.updateUser)
+
 module.exports = router

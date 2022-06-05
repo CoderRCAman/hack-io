@@ -6,6 +6,7 @@ import PostModal from './PostModal'
 
 export default function LeftBar() { 
   const [open, setOpen] = useState(false);
+  
   const logout = async () => {
      try {
        const logoutResponse = await axios.get('/user/logout') ;
@@ -19,7 +20,7 @@ export default function LeftBar() {
   const onCloseModal = (theDamFankson) => theDamFankson(false);
   return (
     <div className='  flex flex-col '>
-    <PostModal open={open} onClose={() => onCloseModal(setOpen)} />
+   {open &&  <PostModal open={open} onClose={() => onCloseModal(setOpen)} />}
       {/* <div className='flex flex-col justify-start'> */}
       <Link href="/">
       <button 

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
    
@@ -10,17 +10,16 @@ const postSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
-    category: {
-        type: String,
-        required: true
-    },
-    checked: {
-        type: Boolean,
-        default: false
-    },
+    type : {
+        type : String  ,
+        required : true 
+    }, 
+    user_info : {
+        type : mongoose.Schema.Types.ObjectId
+    }
     
 }, {
     timestamps: true
 })
 
-export default mongoose.model('Post', postSchema)
+module.exports=  mongoose.model('Post', postSchema)
