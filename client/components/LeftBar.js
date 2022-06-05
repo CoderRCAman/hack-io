@@ -17,7 +17,7 @@ export default function LeftBar() {
      }
   }
   const onOpenModal = (theDamFankson) => theDamFankson(true); // theDamFankson is variable
-  const onCloseModal = (theDamFankson) => theDamFankson(false);
+  const onCloseModal = (theDamFankson) => theDamFankson(false)
   return (
     <div className='  flex flex-col '>
    {open &&  <PostModal open={open} onClose={() => onCloseModal(setOpen)} />}
