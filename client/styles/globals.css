@@ -5,3 +5,19 @@
 ::-webkit-scrollbar {
   display: none;
 }
+.customModalEnroll{
+  background: #0b1829;
+  border-radius: 2px;
+  height: 90vh;
+  width: 40%;
+ 
+}
+.customOverlayEnroll {
+  background: rgba(128, 179, 201, 0.7);
+}
+@media screen and (max-width: 768px) {
+  .customModalEnroll{
+    width: 90%;
+  }
+}
+  

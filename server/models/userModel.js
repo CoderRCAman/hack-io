@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: 'user',
     },
+    address: {
+      type: String,
+      default: '',
+    },
     
     isSubscribed: {
       type: Boolean,
@@ -36,9 +40,13 @@ const userSchema = new mongoose.Schema(
       default: {}
     },
     avatar: {
-      type: String,
-      default: "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png"
-  }
+      type: {},
+      default: {
+        download_url:
+          "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png",
+        file_name: "",
+      },
+    },
   },
   {
     timestamps: true,
